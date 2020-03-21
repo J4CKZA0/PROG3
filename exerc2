@@ -1,0 +1,85 @@
+(exerc2)
+<?php
+class Empregados{
+  public $primeiroNome;
+  public $sobrenome;
+  public $salarioMensal;
+  public $salarioAnual;
+  
+  public function __construct(){
+    $this-> primeiroNome = "Antonio";
+    $this-> sobrenome = "Catelan";
+    $this-> salarioMensal = 998.00;
+  }
+
+  public function setPrimeiroNome($recebe01){
+    return $this-> primeiroNome = $recebe01;
+  }
+  
+  public function getPrimeiroNome(){
+    return $this-> primeiroNome;
+  }
+  
+  public function setSobrenome($recebe02){
+    return $this-> sobrenome = $recebe02;
+  }
+  
+  public function getSobrenome(){
+    return $this-> sobrenome;
+  }
+  
+  public function setSalarioMensal($recebe03){
+    return $this-> salarioMensal = $recebe03;
+  }
+  
+  public function getSalarioMensal(){
+    return $this-> salarioMensal;
+  }
+  
+  public function setSalarioAnual(){
+    return $this-> salarioAnual = $this-> salarioMensal*12;
+  }
+  
+  public function getSalarioAnual(){
+    return $this-> salarioAnual;
+  }
+  
+  public function validasalarioMensal(){
+    if($this-> salarioMensal <= 0){
+      $this-> salarioMensal = 0.0;
+    }
+  }
+  
+  public function aumentosalarioMensal(){
+    $acrescimo = ($this-> salarioMensal*10)/100;
+    $this-> salarioMensal = $this-> salarioMensal + $acrescimo;
+  }
+}
+
+
+EMPREGADO 01
+
+$empregado01 = new Empregados();
+$empregado01-> valida_salarioMensal();
+$empregado01-> setSalarioAnual();
+echo "SALÁRIO ANUAL DO {$empregado01-> getPrimeiroNome()} {$empregado01-> getSobrenome()} É R$ {$empregado01-> getSalarioAnual()}n"; 
+
+$empregado01-> aumentosalarioMensal();
+$empregado01-> setSalarioAnual();
+echo "O SALÁRIO ANUAL DE {$empregado01-> getPrimeiroNome()} RECEBEU UM ACRÉSCIMO DE 10% PASSANDO A SER DE R$ {$empregado01-> getSalarioAnual()} n";
+
+
+EMPREGADO 02
+
+$empregado02 = new Empregados();
+$empregado02-> setPrimeiroNome("Lucia");
+$empregado02-> setSobrenome("Iara");
+$empregado02-> setSalarioMensal(5000);
+$empregado02-> valida_salarioMensal();
+$empregado02-> setSalarioAnual();
+echo "O SALÁRIO ANUAL DE {$empregado02-> getPrimeiroNome()} {$empregado02-> getSobrenome()} É DE R$ {$empregado02-> getSalarioAnual()}n"; 
+
+$empregado01-> aumentosalarioMensal();
+$empregado01-> setSalarioAnual();
+echo "O SALARIO ANUAL DE {$empregado02-> getPrimeiroNome()} RECEBEU UM ACRÉSCIMO DE 10% PASSANDO A SER DE R$ {$empregado02-> getSalarioAnual()} n";
+/>
